@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Shop from './pages/Shop';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<><Hero /><ProductGrid /></>} />
+              <Route path="/shop" element={<Shop />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               {/* Add more routes here */}

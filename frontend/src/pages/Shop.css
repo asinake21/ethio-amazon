@@ -1,0 +1,76 @@
+.shop-page {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.shop-banner {
+  margin: 0 5%;
+  padding: 4rem;
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.shop-banner h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.shop-banner p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+}
+
+.shop-container {
+  display: flex;
+  padding: 0 5%;
+  gap: 3rem;
+}
+
+.shop-filters {
+  width: 250px;
+  height: fit-content;
+  padding: 2rem;
+  border-radius: 20px;
+  position: sticky;
+  top: 100px;
+}
+
+.shop-filters h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.shop-filters ul {
+  list-style: none;
+}
+
+.shop-filters li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.shop-filters li:hover, .shop-filters li.active {
+  color: var(--secondary);
+  padding-left: 5px;
+}
+
+.shop-main {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .shop-container {
+    flex-direction: column;
+  }
+  
+  .shop-filters {
+    width: 100%;
+    position: static;
+  }
+}
