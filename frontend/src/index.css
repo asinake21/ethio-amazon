@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-  /* Color Palette - Ethiopian Modernized */
+  /* Default Dark Mode (Premium) */
   --primary: #009b4c;
   --primary-dark: #007a3c;
   --secondary: #fedd00;
@@ -11,8 +11,19 @@
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  --text-main: #f8fafc;
+  --bg-main: #0f172a;
   
   --font-main: 'Outfit', sans-serif;
+}
+
+[data-theme='light'] {
+  --dark: #f8fafc;
+  --light: #0f172a;
+  --bg-main: #f8fafc;
+  --text-main: #0f172a;
+  --glass: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -23,9 +34,10 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 

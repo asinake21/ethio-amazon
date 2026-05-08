@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ethi_amaz
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/products', require('./routes/productRoutes'));
 
 // Basic Route
 app.get('/', (req, res) => {
