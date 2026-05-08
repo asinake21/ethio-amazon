@@ -96,16 +96,17 @@ const seedData = async () => {
     console.log(`Connecting to: ${connStr}`);
     await mongoose.connect(connStr);
     
-    // Clear existing products
+    // Clear existing products and users
     await Product.deleteMany();
+    await User.deleteMany();
     
     // Create a dummy admin user if none exists
     let admin = await User.findOne({ role: 'admin' });
     if (!admin) {
       admin = await User.create({
-        name: 'Admin User',
-        email: 'admin@ethi-amazon.com',
-        password: 'password123',
+        name: 'Asinake Hailie',
+        email: 'asinakehailie00@gmai.com',
+        password: '11111111',
         role: 'admin'
       });
     }

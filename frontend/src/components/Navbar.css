@@ -3,20 +3,18 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  padding: 1.2rem 0;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  padding: 0 5%;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .navbar-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 5%;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .logo h1 {
@@ -27,97 +25,137 @@
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .nav-item {
+  text-decoration: none;
+  color: var(--text-main);
   font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-  color: var(--secondary);
+  opacity: 1;
+  color: var(--primary);
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .theme-toggle {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: background 0.3s;
 }
 
 .theme-toggle:hover {
-  transform: rotate(20deg) scale(1.1);
+  background: var(--glass);
 }
 
 .search-bar {
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
   display: flex;
   align-items: center;
-  width: 250px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  gap: 0.8rem;
+  width: 200px;
+}
+
+.search-icon {
+  opacity: 0.5;
 }
 
 .search-bar input {
   background: none;
   border: none;
-  color: var(--light);
-  width: 100%;
+  color: var(--text-main);
   outline: none;
+  width: 100%;
   font-size: 0.9rem;
 }
 
-.search-bar input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+.cart-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: background 0.3s;
 }
 
-.cart-btn {
-  position: relative;
-  font-size: 1.2rem;
+.cart-btn:hover {
+  background: var(--glass);
 }
 
 .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -2px;
+  right: -2px;
   background: var(--accent);
   color: white;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  font-weight: 700;
   width: 18px;
   height: 18px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
 }
 
 .user-menu {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  background: var(--glass);
 }
 
 .user-name {
   font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.logout-btn:hover {
+  opacity: 1;
 }
 
 .auth-btn {
-  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  color: white;
+  background: var(--primary);
+  padding: 0.6rem 1.4rem;
   border-radius: 50px;
+  font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.3s ease;
 }
 
-.auth-btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  transform: translateY(-2px);
+[data-theme='light'] .auth-btn {
+  color: white;
 }

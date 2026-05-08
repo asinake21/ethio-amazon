@@ -1,29 +1,40 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { ShoppingCart, Plus } from 'lucide-react';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div className="product-card glass">
+    <motion.div 
+      className="product-card glass"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -10 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="product-image">
-        {/* Using a placeholder if no image exists */}
         <img src={product.image === 'no-photo.jpg' ? `https://via.placeholder.com/400?text=${product.name}` : product.image} alt={product.name} />
+        <div className="product-badge">{product.category}</div>
       </div>
       <div className="product-info">
-        <span className="product-category">{product.category}</span>
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">${product.price}</p>
-        <button 
-          className="add-to-cart" 
-          title="Add to Cart"
-          onClick={() => addToCart(product)}
-        >
-          +
-        </button>
+        <p className="product-desc">{product.description.substring(0, 60)}...</p>
+        <div className="product-footer">
+          <p className="product-price">${product.price}</p>
+          <motion.button 
+            className="add-to-cart-btn" 
+            whileTap={{ scale: 0.9 }}
+            onClick={() => addToCart(product)}
+          >
+            <Plus size={20} />
+          </motion.button>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
