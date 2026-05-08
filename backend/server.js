@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ethi_amaz
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
+// Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+
 // Basic Route
 app.get('/', (req, res) => {
   res.json({ message: 'Ethi-Amazon API is running!' });

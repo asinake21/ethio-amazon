@@ -1,18 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   return (
     <nav className="navbar glass">
       <div className="navbar-container">
         <div className="logo">
-          <h1 className="gradient-text">Ethi-Amazon</h1>
+          <Link to="/">
+            <h1 className="gradient-text">Ethi-Amazon</h1>
+          </Link>
         </div>
         <div className="nav-links">
-          <a href="/" className="nav-item">Home</a>
-          <a href="/shop" className="nav-item">Shop</a>
-          <a href="/categories" className="nav-item">Categories</a>
-          <a href="/sell" className="nav-item">Sell</a>
+          <Link to="/" className="nav-item">Home</Link>
+          <Link to="/shop" className="nav-item">Shop</Link>
+          {user && user.role === 'seller' && <Link to="/sell" className="nav-item">Seller Dashboard</Link>}
+          {user && user.role === 'admin' && <Link to="/admin" className="nav-item">Admin</Link>}
         </div>
         <div className="nav-actions">
           <div className="search-bar glass">
@@ -22,7 +28,15 @@ const Navbar = () => {
             <span className="cart-icon">🛒</span>
             <span className="cart-count">0</span>
           </button>
-          <button className="auth-btn glass">Sign In</button>
+          
+          {user ? (
+            <div className="user-menu">
+              <span className="user-name">Hi, {user.name.split(' ')[0]}</span>
+              <button onClick={logout} className="auth-btn glass">Logout</button>
+            </div>
+          ) : (
+            <Link to="/login" className="auth-btn glass">Sign In</Link>
+          )}
         </div>
       </div>
     </nav>

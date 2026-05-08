@@ -88,6 +88,18 @@
   font-weight: bold;
 }
 
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
 .auth-btn {
   padding: 0.6rem 1.5rem;
   border-radius: 50px;
